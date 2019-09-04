@@ -76,15 +76,10 @@ with open(csvpath, mode='r', newline='') as csvfile:
     month = []
     profitLoss = []
     for row in csvreader:
-        # print the row as a proof of concept
-        #print(row)
-
         row[1] = int(row[1])
         month.append(row[0])
         profitLoss.append(row[1])
 
-        # print the results initially as a proof of concept
-        #print(row[1])
 
         #Add this row's profit/loss to the current total
         profitLossSum = int(profitLossSum)+int(row[1])
@@ -121,5 +116,5 @@ with open(csvpath, mode='r', newline='') as csvfile:
     print(f"\n Financial analysis \n --------------------- \n Total Months: {totalMonths} \n Total: ${profitLossSum} \n The average change was: ${profitLossAverage} \n Greatest Increase in Profits: ${profitLossGreatest} in {profitLossGreatestMonth} \n Greatest Decrease in Profits: ${profitLossLeast} in {profitLossLeastMonth} \n ---------------------")
 
 # Write the analysis to a TXT file
-analysis = open("analysis.txt","w+")
+analysis = open("Resources/analysis.txt","w+")
 analysis.write(f"\n Financial analysis \n --------------------- \n Total Months: {totalMonths} \n Total: ${profitLossSum} \n The average change was: ${profitLossAverage} \n Greatest Increase in Profits: ${profitLossGreatest} in {profitLossGreatestMonth} \n Greatest Decrease in Profits: ${profitLossLeast} in {profitLossLeastMonth} \n ---------------------")
